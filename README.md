@@ -189,22 +189,26 @@ B <= "0000" when enable = '0'
 | <= | Less than or equal |
 | >= | Greater than or equal|
 
-# Branches and Loops - IF, WHILE, DO WHILE, FOR 
-```vhdl
+# Branches and Loops 
 
-...
+### IF branch
+```vhdl
 if A = B then
 	Equal <= '1';  -- Set output to '1' if A equals B
 else
         Equal <= '0';  -- Set output to '0' if A does not equal B
 end if;
+```
 
-...
+### WHILE loop
+```vhdl
 while temp_count < 7 loop
 	temp_count <= temp_count + 1;  -- Increment the counter
 end loop;
+```
 
-...
+### DO WHILE loop
+```vhdl
 loop
 	-- Perform the operation (increment the counter)
 	temp_count <= temp_count + 1;
@@ -217,12 +221,13 @@ loop
 	-- Exit the loop if the condition is met
 	exit when condition_met;
 end loop;
+```
 
-...
+### FOR loop
+```vhdl
 for i in 0 to 7 loop
 	output_vector(i) <= not input_vector(i);  -- Invert each bit
 end loop;
-
 ```
 
 

@@ -344,12 +344,15 @@ begin
 	loop1: for i in 1 to n-1 generate
 		carries: FullAdder port map(A(i),B(i), temp(i - 1), sum(i), temp(i));
 	end generate;
+```
 
+## N-bit 4 to 1 multiplexer
+```vhdl
 
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
-## N-bit 4 to 1 multiplexer
+
 
 -- Entity declaration for the 4-to-1 multiplexer
 entity MUX4to1 is

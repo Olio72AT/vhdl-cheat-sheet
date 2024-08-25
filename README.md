@@ -1,5 +1,6 @@
 # <div align="center" > VHDL Cheat Sheet</div>
 ### <div align="right" > By Ismail El Badawy
+### <div align="right" > Extended by Olier Hladik 
 
 # Table of Contents
  * [Libraries](#libraries)

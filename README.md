@@ -344,6 +344,9 @@ begin
 	loop1: for i in 1 to n-1 generate
 		carries: FullAdder port map(A(i),B(i), temp(i - 1), sum(i), temp(i));
 	end generate;
+        Cout <= temp(n-1);
+end Architecture;
+
 ```
 
 ## N-bit 4 to 1 multiplexer
@@ -386,7 +389,7 @@ end Architecture;
 ```
 
 ## N-bit 1 to 4 demultiplexer
-```
+``` vhdl
 library IEEE;
 use IEEE.STD_LOGIC_1164.ALL;
 
@@ -423,3 +426,4 @@ begin
         end case;
     end process;
 end Behavioral;
+```

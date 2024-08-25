@@ -344,6 +344,40 @@ begin
 	loop1: for i in 1 to n-1 generate
 		carries: FullAdder port map(A(i),B(i), temp(i - 1), sum(i), temp(i));
 	end generate;
+
+
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+## N-bit 4 to 1 multiplexer
+
+-- Entity declaration for the 4-to-1 multiplexer
+entity MUX4to1 is
+    Port ( 
+           A : in STD_LOGIC;        -- First input
+           B : in STD_LOGIC;        -- Second input
+           C : in STD_LOGIC;        -- Third input
+           D : in STD_LOGIC;        -- Fourth input
+           S : in STD_LOGIC_VECTOR(1 downto 0);  -- Select lines
+           Y : out STD_LOGIC        -- Output
+          );
+end MUX4to1;
+
+-- Architecture declaration
+architecture Behavioral of MUX4to1 is
+begin
+    -- Process to determine output based on select lines
+    process(A, B, C, D, S)
+    begin
+        case S is
+            when "00" => Y <= A;  -- If select lines are 00, output A
+            when "01" => Y <= B;  -- If select lines are 01, output B
+            when "10" => Y <= C;  -- If select lines are 10, output C
+            when "11" => Y <= D;  -- If select lines are 11, output D
+            when others => Y <= '0';  -- Default case (should not happen)
+        end case;
+    end process;
+end Behavioral;
 	Cout <= temp(n-1);
 end Architecture;
 ```

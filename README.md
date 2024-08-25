@@ -194,6 +194,47 @@ B <= "0000" when enable = '0'
 #  <div id="testing"> Test Bench </div>
 A test bench is an entity with no ports.
 
+
+### Branches and Loops- IF, WHILE, DO WHILE, FOR 
+```vhdl
+
+...
+
+if A = B then
+	Equal <= '1';  -- Set output to '1' if A equals B
+else
+        Equal <= '0';  -- Set output to '0' if A does not equal B
+end if;
+
+...
+
+while temp_count < 7 loop
+	temp_count <= temp_count + 1;  -- Increment the counter
+end loop;
+
+...
+
+loop
+	-- Perform the operation (increment the counter)
+	temp_count <= temp_count + 1;
+	
+	-- Check the condition (for this example, we stop if the counter reaches 10)
+	if temp_count = 10 then
+	    condition_met <= true;
+	end if;
+	
+	-- Exit the loop if the condition is met
+	exit when condition_met;
+end loop;
+
+...
+
+for i in 0 to 7 loop
+	output_vector(i) <= not input_vector(i);  -- Invert each bit
+end loop;
+
+```
+
 ### Assert
 ```vhdl
 Assert(condition) Report "Error message"

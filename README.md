@@ -384,3 +384,42 @@ end Behavioral;
 	Cout <= temp(n-1);
 end Architecture;
 ```
+
+## N-bit 1 to 4 demultiplexer
+```
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Entity declaration for the 1-to-4 demultiplexer
+entity DEMUX1to4 is
+    Port ( 
+           D : in STD_LOGIC;        -- Input
+           S : in STD_LOGIC_VECTOR(1 downto 0);  -- Select lines
+           Y0 : out STD_LOGIC;      -- Output 0
+           Y1 : out STD_LOGIC;      -- Output 1
+           Y2 : out STD_LOGIC;      -- Output 2
+           Y3 : out STD_LOGIC       -- Output 3
+          );
+end DEMUX1to4;
+
+-- Architecture declaration
+architecture Behavioral of DEMUX1to4 is
+begin
+    -- Process to determine outputs based on select lines
+    process(D, S)
+    begin
+        -- Default all outputs to '0'
+        Y0 <= '0';
+        Y1 <= '0';
+        Y2 <= '0';
+        Y3 <= '0';
+        
+        case S is
+            when "00" => Y0 <= D;  -- If select lines are 00, output D to Y0
+            when "01" => Y1 <= D;  -- If select lines are 01, output D to Y1
+            when "10" => Y2 <= D;  -- If select lines are 10, output D to Y2
+            when "11" => Y3 <= D;  -- If select lines are 11, output D to Y3
+            when others => null;   -- Default case (should not happen)
+        end case;
+    end process;
+end Behavioral;
